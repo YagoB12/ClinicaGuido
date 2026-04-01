@@ -1,0 +1,694 @@
+/* ===================== COLORES BASE ===================== */
+.rxscope {
+  --med-yellow-main: #d89c0b;
+  --med-yellow-hover: #b57f06;
+  --med-yellow-light: #fff8e6;
+  --med-red-main: #e74c3c;
+  --med-red-hover: #c0392b;
+  --med-gray-border: #ddd;
+  --med-text-dark: #333;
+  --med-text-muted: #666;
+  --med-bg-light: #fffdf6;
+  --med-white: #ffffff;
+}
+
+/* ===================== CONTENEDOR/TABS ===================== */
+.rxscope .page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--med-bg-light);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.rxscope .tabs-container {
+  background: var(--med-white);
+  margin-top: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+}
+.rxscope .tabs-header { display: flex; border-bottom: 1px solid var(--med-gray-border); }
+.rxscope .tab-button {
+  background: none; border: none; padding: 12px 20px; cursor: pointer;
+  font-weight: 500; color: var(--med-text-muted);
+  border-bottom: 3px solid transparent; transition: .3s;
+}
+.rxscope .tab-button:hover { color: var(--med-yellow-main); }
+.rxscope .tab-button.active {
+  color: var(--med-yellow-main);
+  border-bottom-color: var(--med-yellow-main);
+  background-color: var(--med-yellow-light);
+}
+.rxscope .tabs-content { padding: 30px; }
+
+/* ===================== BOTONES ===================== */
+.rxscope .btn-primary, 
+.rxscope .btn-secondary, 
+.rxscope .btn-danger, 
+.rxscope .btn-ghost {
+  padding: 10px 16px; border-radius: 8px; border: none; cursor: pointer;
+  font-weight: 600; transition: .25s;
+}
+.rxscope .btn-primary { background: var(--med-yellow-main); color: var(--med-white); }
+.rxscope .btn-primary:hover { background: var(--med-yellow-hover); }
+.rxscope .btn-secondary { background: #f6c744; color: #fff; }
+.rxscope .btn-secondary:hover { background: #dba600; }
+.rxscope .btn-danger { background: var(--med-red-main); color: #fff; }
+.rxscope .btn-danger:hover { background: var(--med-red-hover); }
+.rxscope .btn-ghost { background: transparent; color: var(--med-text-dark); border: 1px solid var(--med-gray-border); }
+.rxscope .btn-ghost:hover { border-color: var(--med-yellow-main); color: var(--med-yellow-main); }
+.rxscope .btn { height: 42px; display: inline-flex; align-items: center; justify-content: center; }
+
+/* ===================== FILTROS (LIST) ===================== */
+.rxscope .card-like {
+  background: var(--med-white);
+  border: 1px solid var(--med-gray-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  margin-bottom: 16px;
+}
+.rxscope .med-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.1fr 0.9fr 0.9fr; /* búsqueda + filtros + tamaño + pager */
+  gap: 20px 24px;
+  align-items: center;
+}
+.rxscope .med-field { display: flex; flex-direction: column; gap: 6px; }
+.rxscope .med-field.search { grid-column: span 2; } /* búsqueda más ancha */
+.rxscope .med-label { margin-bottom: 2px; font-weight: 600; color: var(--med-text-dark); }
+.rxscope .med-input, 
+.rxscope .med-select {
+  width: 100%; height: 42px; padding: 10px;
+  border: 1px solid var(--med-gray-border); border-radius: 8px;
+  background: var(--med-white); font-size: .95rem;
+}
+.rxscope .med-input:focus, 
+.rxscope .med-select:focus {
+  outline: none; border-color: var(--med-yellow-main);
+  box-shadow: 0 0 5px rgba(216,156,11,.3);
+}
+.rxscope .med-checks { display: flex; flex-direction: column; gap: 8px; padding-top: 8px; }
+.rxscope .med-check { display: inline-flex; align-items: center; gap: 10px; line-height: 1; color: var(--med-text-dark); }
+.rxscope .med-check input { width: 18px; height: 18px; }
+.rxscope .med-pager-row { display: inline-flex; align-items: center; gap: 8px; height: 42px; }
+.rxscope .med-pager-indicator {
+  min-width: 76px; height: 42px; display: grid; place-items: center;
+  border: 1px solid var(--med-gray-border); border-radius: 8px; padding: 0 10px; background: #fafafa;
+}
+
+/* ===================== TABLA (LIST) ===================== */
+.rxscope .table-wrap { overflow-x: auto; }
+.rxscope .table { width: 100%; border-collapse: collapse; }
+.rxscope .table thead th {
+  background-color: var(--med-yellow-light);
+  color: var(--med-text-dark);
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--med-gray-border);
+}
+.rxscope .table tbody td {
+  padding: 14px 12px; /* un poco más de aire */
+  border-bottom: 1px solid var(--med-gray-border);
+  vertical-align: middle; /* centra vertical */
+}
+.rxscope .table tbody tr:hover { background-color: #fffdf2; }
+
+/* centrado horizontal de columnas 2..5 */
+.rxscope .table td:nth-child(2),
+.rxscope .table td:nth-child(3),
+.rxscope .table td:nth-child(4),
+.rxscope .table td:nth-child(5),
+.rxscope .table th:nth-child(2),
+.rxscope .table th:nth-child(3),
+.rxscope .table th:nth-child(4),
+.rxscope .table th:nth-child(5) { text-align: center; }
+
+/* primera a la izquierda, última reservada para acciones */
+.rxscope .table td:first-child, 
+.rxscope .table th:first-child { text-align: left; }
+.rxscope .table td:last-child, 
+.rxscope .table th:last-child { text-align: right; }
+
+.rxscope .actions { display: inline-flex; gap: 8px; }
+
+/* columna Acciones centrada y sin hueco al borde */
+.rxscope .acciones-col {
+  width: 220px; text-align: center !important; vertical-align: middle;
+  padding-right: 0 !important;
+}
+.rxscope .acciones-col .actions {
+  display: flex; justify-content: center; align-items: center; gap: 10px;
+}
+.rxscope .acciones-col .btn { min-width: 70px; height: 36px; font-weight: 600; }
+
+.rxscope .table-responsive { padding-right: 0; margin-right: 0; }
+
+.rxscope .list-footer {
+  margin-top: 10px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.rxscope .footer-pager { display: inline-flex; gap: 8px; }
+
+/* ===================== FORM (CREATE/EDIT) ===================== */
+.rxscope .form-grid {
+  display: grid; gap: 24px;
+  background-color: var(--med-white);
+  padding: 28px; border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  max-width: 1200px; margin: 0 auto;
+}
+.rxscope .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.rxscope .field { display: flex; flex-direction: column; }
+.rxscope .field label { color: var(--med-text-dark); font-weight: 500; margin-bottom: 6px; }
+.rxscope .form-grid input, 
+.rxscope .form-grid select { height: 42px; }
+.rxscope .form-grid input, 
+.rxscope .form-grid textarea, 
+.rxscope .form-grid select {
+  width: 100%; padding: 10px; border: 1px solid var(--med-gray-border);
+  border-radius: 8px; font-size: .95rem; background: var(--med-white);
+  transition: border-color .2s, box-shadow .2s;
+}
+.rxscope .form-grid textarea { min-height: 72px; resize: vertical; }
+.rxscope .form-grid input:focus, 
+.rxscope .form-grid textarea:focus, 
+.rxscope .form-grid select:focus {
+  border-color: var(--med-yellow-main); outline: none; box-shadow: 0 0 5px rgba(216,156,11,.3);
+}
+.rxscope .actions-right { display: flex; justify-content: flex-end; }
+.rxscope .invalid-note { color: #b91c1c; font-size: 0.85rem; margin-top: 4px; }
+
+/* ===================== MODALES ===================== */
+.rxscope .modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.45);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 999; animation: fadeIn .2s ease;
+}
+.rxscope .modal-container {
+  background: var(--med-white); width: 92%; max-width: 900px;
+  border-radius: 12px; padding: 26px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.25); animation: scaleIn .25s ease;
+}
+.rxscope .modal-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
+}
+.rxscope .modal-title { font-size: 1.3rem; font-weight: 700; color: var(--med-yellow-main); }
+.rxscope .btn-close { border: none; background: transparent; font-size: 1.2rem; cursor: pointer; color: var(--med-text-muted); }
+.rxscope .btn-close:hover { color: var(--med-yellow-main); }
+.rxscope .modal-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(.98); } to { opacity: 1; transform: scale(1); } }
+
+/* === Grid de formularios dentro de modales (Edit) === */
+.rxscope .modal-form-grid { display: grid; gap: 20px; }
+/* reutiliza .grid-3, .field, etc. */
+
+/* ===================== VIEW MODAL (DETALLE) ===================== */
+.rxscope .meta-chips { display: flex; gap: 8px; margin-bottom: 8px; }
+.rxscope .info-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px;
+}
+.rxscope .info-item { display: flex; flex-direction: column; gap: 6px; }
+.rxscope .info-item.span-2 { grid-column: 1 / -1; }
+.rxscope .info-label { font-weight: 700; color: var(--med-text-dark); }
+.rxscope .info-value {
+  border: 1px solid var(--med-gray-border); background: #fafafa;
+  border-radius: 10px; padding: 10px 12px; min-height: 42px;
+  display: flex; align-items: center; color: var(--med-text-dark);
+}
+/* chips */
+.rxscope .chip { display: inline-block; padding: 4px 10px; border-radius: 999px; font-weight: 700; font-size: .8rem; border: 1px solid var(--med-gray-border); }
+.rxscope .chip-amber { background: var(--med-yellow-light); border-color: #fde2b7; color: var(--med-yellow-hover); }
+.rxscope .chip-red { background: #fdecea; color: #b02a37; border-color: #f5c2c7; }
+
+/* ===================== UTILIDADES ===================== */
+.rxscope .text-warning { color: var(--med-yellow-main); }
+.rxscope .text-muted { color: var(--med-text-muted); }
+.rxscope .text-center { text-align: center; }
+.rxscope .text-end { text-align: right; }
+.rxscope .small { font-size: .9rem; }
+.rxscope .nowrap { white-space: nowrap; }
+.rxscope .fw-semibold { font-weight: 600; }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .rxscope .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .rxscope .med-field.search { grid-column: span 2; }
+}
+@media (max-width: 820px) {
+  .rxscope .med-grid { grid-template-columns: 1fr; }
+  .rxscope .med-field.search { grid-column: auto; }
+}
+@media (max-width: 768px) {
+  .rxscope .tabs-content { padding: 20px; }
+  .rxscope .form-grid { padding: 18px; }
+  .rxscope .modal-container { width: 96%; padding: 18px; }
+}
+@media (max-width: 720px) {
+  .rxscope .info-grid { grid-template-columns: 1fr; }
+}
+/* ===================== MODAL (Medicines) ===================== */
+.rxscope .modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.rxscope .modal {
+  background: var(--med-white);
+  width: 92%;
+  max-width: 920px; /* igual que consultas */
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  animation: medFadeIn 0.25s ease;
+}
+
+.rxscope .modal-title {
+  text-align: center;
+  color: var(--med-yellow-main);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.rxscope .modal-form {
+  display: grid;
+  gap: 18px;
+}
+
+.rxscope .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@keyframes medFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===================== ESTILO DE CAMPOS ===================== */
+.rxscope .field {
+  display: flex;
+  flex-direction: column;
+}
+.rxscope .field label {
+  color: var(--med-text-dark);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.rxscope .field input,
+.rxscope .field textarea,
+.rxscope .field select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--med-gray-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: var(--med-white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.rxscope .field textarea {
+  min-height: 72px;
+  resize: vertical;
+}
+.rxscope .field input:focus,
+.rxscope .field textarea:focus,
+.rxscope .field select:focus {
+  border-color: var(--med-yellow-main);
+  outline: none;
+  box-shadow: 0 0 5px rgba(216, 156, 11, 0.3);
+}
+
+/* ===================== GRID ===================== */
+.rxscope .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.rxscope .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ===================== BOTONES ===================== */
+.rxscope .btn-primary,
+.rxscope .btn-secondary,
+.rxscope .btn-danger,
+.rxscope .btn-ghost {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.rxscope .btn-primary {
+  background: var(--med-yellow-main);
+  color: var(--med-white);
+}
+.rxscope .btn-primary:hover {
+  background: var(--med-yellow-hover);
+}
+
+.rxscope .btn-secondary {
+  background: #f6c744;
+  color: #fff;
+}
+.rxscope .btn-secondary:hover {
+  background: #dba600;
+}
+
+.rxscope .btn-danger {
+  background: var(--med-red-main);
+  color: #fff;
+}
+.rxscope .btn-danger:hover {
+  background: var(--med-red-hover);
+}
+
+.rxscope .btn-ghost {
+  background: transparent;
+  color: var(--med-text-dark);
+  border: 1px solid var(--med-gray-border);
+}
+.rxscope .btn-ghost:hover {
+  border-color: var(--med-yellow-main);
+  color: var(--med-yellow-main);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .rxscope .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .rxscope .grid-3,
+  .rxscope .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+/* ================== THEME "Guido Golden" (match Enfermedades) ================== */
+.conscope {
+  /* Paleta y básicos */
+  --cons-yellow-main: #d99400;   /* primary */
+  --cons-yellow-hover: #b57b00;  /* primary hover */
+  --cons-yellow-light: #fff3d3;  /* cabeceras/strips tabla */
+  --cons-bg-light: #fffcf7;      /* fondo página */
+  --cons-white: #ffffff;
+
+  --cons-text-dark: #021526;     /* texto principal como en Enfermedades */
+  --cons-text-muted: #6e6e6e;
+
+  --cons-gray-border: #f2e8c9;   /* bordes suaves */
+  --cons-input-border: #e0cfa2;
+
+  --cons-red-main: #cc2b2b;      /* danger */
+  --cons-red-hover: #a91f1f;
+
+  --cons-soft: #fffaf0;          /* cajas suaves */
+  --cons-tab-inactive: #f7e2a8;  /* pestaña inactiva */
+  --cons-tab-hover: #e3e2b6;     /* hover pestaña/ghost */
+}
+
+/* Fondo de página y contenedores principales */
+.conscope .page-container { background-color: var(--cons-bg-light); }
+.conscope .header-box { background-color: #fff7e1; }
+.conscope .tabs-container { background-color: var(--cons-soft); }
+
+/* ---------------- Botones (alineados con Enfermedades) ---------------- */
+.conscope .btn-primary {
+  background: var(--cons-yellow-main);
+  color: #fff;
+}
+.conscope .btn-primary:hover { background: var(--cons-yellow-hover); }
+
+.conscope .btn-secondary {
+  background: #ffbb00; /* como .edit-btn */
+  color: #fff;
+}
+.conscope .btn-secondary:hover { background: #e0a600; }
+
+.conscope .btn-danger {
+  background: var(--cons-red-main);
+  color: #fff;
+}
+.conscope .btn-danger:hover { background: var(--cons-red-hover); }
+
+/* Ghost con mismo “tono crema” del sitio de Enfermedades */
+.conscope .btn-ghost {
+  background: transparent;
+  color: var(--cons-text-dark);
+  border: 1px solid var(--cons-input-border);
+}
+.conscope .btn-ghost:hover {
+  background: var(--cons-tab-hover);
+  color: var(--cons-text-dark);
+  border-color: var(--cons-tab-hover);
+}
+
+/* ---------------- Tabs (igual estilo) ---------------- */
+.conscope .tabs-header { margin-bottom: 22px; }
+.conscope .tab-button {
+  background-color: var(--cons-tab-inactive);
+  color: var(--cons-text-dark);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px 8px 0 0;
+  font-weight: 600;
+  transition: .3s;
+}
+.conscope .tab-button:hover { background-color: var(--cons-tab-hover); }
+.conscope .tab-button.active {
+  background-color: var(--cons-yellow-main);
+  color: #fff;
+}
+
+/* ---------------- Inputs / Textareas ---------------- */
+.conscope .field input,
+.conscope .field textarea,
+.conscope .field select,
+.conscope .modal input,
+.conscope .modal textarea,
+.conscope .modal select {
+  border: 1px solid var(--cons-input-border);
+  background-color: #fffdf7;
+  color: var(--cons-text-dark);
+}
+.conscope .field input:focus,
+.conscope .field textarea:focus,
+.conscope .field select:focus,
+.conscope .modal input:focus,
+.conscope .modal textarea:focus,
+.conscope .modal select:focus {
+  outline: none;
+  border-color: var(--cons-yellow-main);
+  box-shadow: 0 0 4px rgba(217,148,0,.5);
+}
+
+/* ---------------- Tablas ---------------- */
+.conscope .table th {
+  background-color: var(--cons-yellow-light);
+  color: var(--cons-text-dark);
+  border-bottom: 2px solid var(--cons-gray-border);
+}
+.conscope .table td {
+  border-bottom: 1px solid var(--cons-gray-border);
+}
+.conscope .table tr:hover { background-color: #fffdf2; }
+
+/* ---------------- Badges (si usás estados) ---------------- */
+.conscope .status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: .8rem;
+}
+.conscope .status-badge.active  { background: #48bb78; color: #fff; } /* verde */
+.conscope .status-badge.inactive{ background: #e53e3e; color: #fff; } /* rojo */
+
+/* ---------------- Modal (títulos y acciones coherentes) ---------------- */
+.conscope .modal-title {
+  color: var(--cons-yellow-main);
+}
+.conscope .modal { background: #fff; }
+
+/* (opcional) resaltar sección superior del modal con “tarjeta suave” */
+.conscope .review-card {
+  background: #fff;
+  border: 1px solid var(--cons-gray-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+.conscope .review-title {
+  color: var(--cons-yellow-main);
+  font-weight: 700;
+}
+
+/* ---------------- Navbar (si lo usas dentro de .conscope) ---------------- */
+.conscope .navbar {
+  background-color: var(--cons-yellow-main);
+  color: #fff;
+}
+.conscope .navbar-right .menu-item:hover,
+.conscope .navbar-right .menu-item.active {
+  color: #021526;
+  background-color: #e3e2b6;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+/* ===== Botón "Ver" en tablas (mismo tamaño que los demás) ===== */
+.rxscope .acciones-col .actions > .btn,
+.rxscope .table td .btn-primary {
+  flex: 0 0 auto;          /* no crecer en el flex container */
+  min-width: 95px;
+  max-width: 110px;
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Asegura alineación vertical agradable en la fila */
+.rxscope .table tbody td {
+  vertical-align: middle;
+}
+
+/* En móvil, si querés que ocupe el ancho de la celda: */
+@media (max-width: 640px) {
+  .rxscope .acciones-col .actions > .btn,
+  .rxscope .table td .btn-primary {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+/* ================== Guido Golden — Overrides para Medicamentos (.rxscope) ================== */
+/* Paleta y básicos unificados */
+.rxscope{
+  --med-yellow-main: #d99400;
+  --med-yellow-hover:#b57b00;
+  --med-yellow-light:#fff3d3;
+  --med-bg-light:#fffcf7;
+  --med-white:#fff;
+
+  --med-text-dark:#021526;
+  --med-text-muted:#6e6e6e;
+
+  --med-gray-border:#f2e8c9;     /* bordes suaves */
+  --med-input-border:#e0cfa2;    /* bordes de inputs */
+
+  --med-red-main:#cc2b2b;
+  --med-red-hover:#a91f1f;
+
+  --med-tab-inactive:#f7e2a8;
+  --med-tab-hover:#e3e2b6;
+}
+
+/* Tabs al estilo Golden (inactiva crema, activa dorado) */
+.rxscope .tabs-header{ margin-bottom:22px; }
+.rxscope .tab-button{
+  background:var(--med-tab-inactive);
+  color:var(--med-text-dark);
+  border:none;
+  padding:12px 25px;
+  border-radius:8px 8px 0 0;
+  font-weight:600;
+  transition:.3s;
+}
+.rxscope .tab-button:hover{ background:var(--med-tab-hover); }
+.rxscope .tab-button.active{
+  background:var(--med-yellow-main);
+  color:#fff;
+}
+
+/* Inputs/Textareas con borde crema y foco dorado */
+.rxscope .med-input,
+.rxscope .med-select,
+.rxscope .form-grid input,
+.rxscope .form-grid textarea,
+.rxscope .form-grid select{
+  border:1px solid var(--med-input-border);
+  background:#fffdf7;
+  color:var(--med-text-dark);
+}
+.rxscope .med-input:focus,
+.rxscope .med-select:focus,
+.rxscope .form-grid input:focus,
+.rxscope .form-grid textarea:focus,
+.rxscope .form-grid select:focus{
+  outline:none;
+  border-color:var(--med-yellow-main);
+  box-shadow:0 0 4px rgba(217,148,0,.5);
+}
+
+/* Botones alineados al tema */
+.rxscope .btn-primary{ background:var(--med-yellow-main); color:#fff; }
+.rxscope .btn-primary:hover{ background:var(--med-yellow-hover); }
+.rxscope .btn-secondary{ background:#ffbb00; color:#fff; }
+.rxscope .btn-secondary:hover{ background:#e0a600; }
+.rxscope .btn-danger{ background:var(--med-red-main); color:#fff; }
+.rxscope .btn-danger:hover{ background:var(--med-red-hover); }
+.rxscope .btn-ghost{
+  background:transparent;
+  color:var(--med-text-dark);
+  border:1px solid var(--med-input-border);
+}
+.rxscope .btn-ghost:hover{
+  background:var(--med-tab-hover);
+  color:var(--med-text-dark);
+  border-color:var(--med-tab-hover);
+}
+
+/* Tabla: encabezado crema y hover sutil (ya usa las vars nuevas) */
+.rxscope .table thead th{
+  background:var(--med-yellow-light);
+  color:var(--med-text-dark);
+  border-bottom:2px solid var(--med-gray-border);
+}
+.rxscope .table tbody td{ border-bottom:1px solid var(--med-gray-border); }
+.rxscope .table tbody tr:hover{ background:#fffdf2; }
+
+/* Botón "Ver" en tablas: mismo tamaño que los demás */
+.rxscope .acciones-col .actions > .btn,
+.rxscope .table td .btn-primary{
+  flex:0 0 auto;
+  min-width:95px;
+  max-width:110px;
+  height:36px;
+  padding:6px 12px;
+  font-size:.9rem;
+  white-space:nowrap;
+  text-align:center;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.rxscope .table tbody td{ vertical-align:middle; }
+
+@media (max-width:640px){
+  .rxscope .acciones-col .actions > .btn,
+  .rxscope .table td .btn-primary{
+    min-width:100%;
+    max-width:100%;
+  }
+}

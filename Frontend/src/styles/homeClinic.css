@@ -1,0 +1,355 @@
+/* ======= General ======= */
+.page-container {
+  background-color: #fdfaf4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ======= Navbar ======= */
+.navbar {
+  background-color: #e3a008;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.clinic-name {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.divider {
+  width: 2px;
+  height: 20px;
+  background-color: #fff;
+  margin: 0 10px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu-item {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+.logout-btn {
+  background-color: #fff;
+  color: #e3a008;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #f8d479;
+}
+
+/* ======= Encabezado Mejorado ======= */
+.home-header {
+  width: 90%;
+  margin: 2rem auto 1.5rem;
+  background: linear-gradient(135deg, #f5c963, #e3a008);
+  color: #4a3500;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Ícono decorativo */
+.home-header-icon {
+  font-size: 2.2rem;
+  background-color: #fff8e1;
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 50%;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  animation: floatIcon 2.5s ease-in-out infinite alternate;
+}
+
+/* Título principal */
+.welcome-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #3a2c00;
+  text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* Subtítulo */
+.welcome-subtitle {
+  font-size: 1.05rem;
+  color: #4b3b00;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatIcon {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+
+/* ======= Quick Stats ======= */
+.quick-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 0 auto 2rem;
+  width: 90%;
+}
+
+.stat-card {
+  background-color: #fff;
+  color: #6b4a00;
+  width: 200px;
+  text-align: center;
+  padding: 1.2rem;
+  border-radius: 14px;
+  font-weight: 600;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #f8e7b6;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  background-color: #fff8e0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+/* ======= Calendar Container ======= */
+.calendar-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 3rem;
+}
+
+/* ======= Panel del Calendario ======= */
+.calendar-panel {
+  flex: 2;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #6b4a00;
+  margin-bottom: 1rem;
+}
+
+/* ======= Panel Derecho ======= */
+.side-panel {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.side-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #6b4a00;
+  margin-bottom: 1rem;
+}
+
+.no-appointments {
+  color: #b7a97a;
+  font-style: italic;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ======= Tarjetas de Citas ======= */
+.appointment-card {
+  background-color: #f8e7b6;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+}
+
+.appointment-card:hover {
+  background-color: #f0d580;
+  transform: translateY(-3px);
+}
+
+.appointment-time {
+  font-weight: bold;
+  color: #6b4a00;
+  margin-right: 1rem;
+  min-width: 70px;
+}
+
+.appointment-info strong {
+  color: #6b4a00;
+}
+
+.appointment-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b3b00;
+}
+
+/* ======= Responsivo ======= */
+@media (max-width: 900px) {
+  .calendar-container {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .calendar-panel,
+  .side-panel {
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar-right {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* ======= SECCIÓN DE MÓDULOS ======= */
+.module-grid {
+  margin: 3rem auto 2rem;
+  width: 90%;
+  background-color: #fffaf0;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.modules-title {
+  text-align: center;
+  color: #6b4a00;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.module-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.module-card {
+  background-color: #fff;
+  border: 2px solid #f6dea5;
+  border-radius: 14px;
+  width: 150px;
+  height: 140px;
+  text-align: center;
+  text-decoration: none;
+  color: #6b4a00;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.module-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.6rem;
+  border-radius: 10px;
+  object-fit: cover;
+  background-color: #fffbe9;
+}
+
+.module-card:hover {
+  transform: translateY(-6px);
+  background-color: #fff7da;
+  border-color: #e3a008;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.module-card span {
+  font-size: 0.95rem;
+  color: #5a3b00;
+}
+
+/* ======= Responsivo ======= */
+@media (max-width: 768px) {
+  .module-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+

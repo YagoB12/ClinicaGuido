@@ -1,0 +1,244 @@
+/* ===================== COLORES BASE ===================== */
+:root {
+  --yellow-main: #d89c0b;
+  --yellow-hover: #b57f06;
+  --yellow-light: #fff8e6;
+  --red-main: #e74c3c;
+  --gray-border: #ddd;
+  --text-dark: #333;
+  --text-muted: #666;
+  --bg-light: #fffdf6;
+  --white: #ffffff;
+}
+
+/* ===================== ESTRUCTURA PRINCIPAL ===================== */
+.login-container {
+  display: flex;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--bg-light);
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-in;
+}
+
+/* ===================== LADO IZQUIERDO ===================== */
+.login-left {
+  flex: 1;
+  background-color: var(--yellow-main);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.login-left h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--white);
+  animation: fadeDown 1.2s ease-out;
+}
+
+.login-left p {
+  font-size: 1.15rem;
+  text-align: center;
+  color: var(--yellow-light);
+  margin-bottom: 2.5rem;
+  animation: fadeDown 1.5s ease-out;
+}
+
+.logo-clinica {
+  width: 260px;
+  height: auto;
+  border-radius: 20px;
+  background-color: var(--white);
+  padding: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  animation: logoZoom 1.3s ease-out;
+  transition: all 0.3s ease;
+}
+
+.logo-clinica:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================== LADO DERECHO ===================== */
+.login-right {
+  flex: 1;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  animation: slideInRight 0.8s ease-out;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--white);
+  border-radius: 15px;
+  padding: 40px 35px;
+  box-shadow: 0 8px 25px rgba(216, 156, 11, 0.25);
+  transition: 0.4s ease;
+}
+
+.login-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(216, 156, 11, 0.35);
+}
+
+.login-form h2 {
+  text-align: center;
+  color: var(--yellow-main);
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* ===================== CAMPOS ===================== */
+.login-form label {
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--gray-border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+  transition: all 0.3s ease;
+  background-color: var(--white);
+}
+
+.login-form input:focus {
+  border-color: var(--yellow-main);
+  box-shadow: 0 0 5px rgba(216, 156, 11, 0.4);
+  outline: none;
+}
+
+/* ===================== BOTÓN ===================== */
+.login-form button {
+  background-color: var(--yellow-main);
+  color: var(--white);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(216, 156, 11, 0.3);
+}
+
+.login-form button:hover {
+  background-color: var(--yellow-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(216, 156, 11, 0.4);
+}
+
+/* ===================== FOOTER ===================== */
+.login-footer {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.login-footer a {
+  color: var(--yellow-main);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-footer a:hover {
+  color: var(--yellow-hover);
+  text-decoration: underline;
+}
+
+/* ===================== ANIMACIONES ===================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes logoZoom {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===================== RESPONSIVIDAD ===================== */
+@media (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left {
+    border-radius: 0 0 100px 100px;
+    padding: 30px;
+  }
+
+  .login-right {
+    padding: 25px;
+  }
+
+  .logo-clinica {
+    width: 200px;
+  }
+}

@@ -1,0 +1,572 @@
+:root {
+  --yellow-main: #d89c0b;       /* Dorado principal */
+  --yellow-hover: #b57f06;      /* Dorado oscuro al pasar el mouse */
+  --yellow-light: #fff8e6;      /* Fondo suave en hover de tabla */
+  --red-main: #e74c3c;          /* Rojo principal */
+  --red-hover: #c0392b;         /* Rojo oscuro hover */
+  --gray-border: #ddd;          /* Bordes suaves */
+  --text-dark: #333;            /* Texto principal */
+  --text-muted: #666;           /* Texto secundario */
+  --bg-light: #fffdf6;          /* Fondo general */
+  --white: #ffffff;             /* Blanco puro */
+}
+
+/* === CONTENEDOR GENERAL === */
+.page-container {
+  font-family: "Poppins", sans-serif;
+  background-color: #fffdf5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: #f6b64b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left .clinic-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.navbar-left .divider {
+  margin: 0 0.5rem;
+  border-left: 2px solid white;
+  height: 20px;
+}
+
+.navbar-left .subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.menu-item {
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.menu-item:hover {
+  color: #ffefc2;
+}
+
+.logout-btn {
+  background-color: white;
+  color: #e68a00;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #ffefc2;
+}
+
+/* === CONTENIDO PRINCIPAL === */
+.content {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+/* === HEADER === */
+.header-box {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.header-title {
+  font-size: 1.8rem;
+  color: #5c320e;
+  font-weight: 700;
+}
+
+/* === TABS === */
+.tabs-container {
+  background-color: #fffaf0;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  padding-bottom: 1.5rem;
+}
+
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid #f0e4d7;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  border-radius: 6px 6px 0 0;
+  color: #8c6123;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  background-color: #ffe9c6;
+}
+
+.tab-button.active {
+  background-color: #f6b64b;
+  color: white;
+}
+
+/* === FORMULARIO DE CITA === */
+form {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+label {
+  font-weight: 600;
+  color: #5c320e;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #d6bfa5;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #fffdf9;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #e68a00;
+}
+
+/* === BOTONES === */
+button,
+.action-btn {
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+/* Crear Cita */
+.create-btn {
+  background-color: #e68a00;
+  color: white;
+  font-weight: 600;
+}
+
+.create-btn:hover {
+  background-color: #c67600;
+}
+
+/* Registrar Paciente */
+.register-btn {
+  background-color: #00695c;
+  color: white;
+  font-weight: 600;
+}
+
+.register-btn:hover {
+  background-color: #004d40;
+}
+
+/* ===================== TABLA DE CITAS ===================== */
+.appointment-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-top: 1.5rem;
+}
+
+.appointment-table th {
+  background-color: #fff3d3;
+  color: black;
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 2px solid var(--gray-border);
+}
+
+.appointment-table td {
+  padding: 12px 16px;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--gray-border);
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+
+.appointment-table tr:hover {
+  background-color: #fffdf2
+;
+}
+
+/* === BOTONES DE ACCIÓN === */
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn {
+  background-color: var(--yellow-main);
+}
+
+.edit-btn:hover {
+  background-color: var(--yellow-hover);
+}
+
+.delete-btn {
+  background-color: var(--red-main);
+}
+
+.delete-btn:hover {
+  background-color: var(--red-hover);
+}
+
+/* === BADGES DE PRIORIDAD === */
+.priority-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.priority-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 75px;
+  height: 24px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  padding: 0 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.priority-badge.baja {
+  background-color: #2ecc71; /* Verde */
+  box-shadow: 0 0 6px rgba(46, 204, 113, 0.5);
+}
+
+.priority-badge.media {
+  background-color: #f1c40f; /* Amarillo */
+  box-shadow: 0 0 6px rgba(241, 196, 15, 0.5);
+}
+
+.priority-badge.alta {
+  background-color: #e74c3c; /* Rojo */
+  box-shadow: 0 0 6px rgba(231, 76, 60, 0.5);
+}
+
+.priority-badge:hover {
+  transform: scale(1.05);
+}
+
+/* === FILTRO DE ESTADO === */
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  padding-right: 1rem;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+.filter-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--gray-border);
+  background-color: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.filter-select:hover {
+  border-color: var(--yellow-main);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--yellow-hover);
+  box-shadow: 0 0 5px rgba(216, 156, 11, 0.3);
+}
+
+/* === MODAL === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #fffaf5;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-header h2 {
+  font-size: 1.3rem;
+  color: #5c320e;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #b71c1c;
+  font-weight: bold;
+}
+
+.close-btn:hover {
+  color: #8b0000;
+}
+
+/* === PRIORIDAD EN TABLA DE CITAS === */
+.priority-cell {
+  text-align: left;
+  vertical-align: middle !important;
+  padding: 9px 0 !important;
+}
+
+.priority-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 75px;
+  height: 24px;
+  border-radius: 12px; /* igual que los de estado */
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  padding: 0 10px;
+  line-height: 1;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  transform: translateY(-1px);
+  transition: all 0.25s ease;
+}
+
+/* === COLORES POR PRIORIDAD === */
+.priority-badge.baja {
+  background-color: #2ecc71; /* Verde */
+  box-shadow: 0 0 6px rgba(46, 204, 113, 0.5);
+}
+
+.priority-badge.media {
+  background-color: #f1c40f; /* Amarillo */
+  box-shadow: 0 0 6px rgba(241, 196, 15, 0.5);
+}
+
+.priority-badge.alta {
+  background-color: #e74c3c; /* Rojo */
+  box-shadow: 0 0 6px rgba(231, 76, 60, 0.5);
+}
+
+.priority-badge:hover {
+  transform: translateY(-1px) scale(1.05);
+}
+
+
+/* === FILTRO DE ESTADO === */
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  justify-content: flex-end; /* 🔹 coloca el filtro a la derecha de la tabla */
+  padding-right: 1rem;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: #03346E;
+  font-size: 0.95rem;
+}
+
+.filter-select {
+  width: auto;
+  min-width: 150px; 
+  max-width: 200px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #b5b5b5;
+  background-color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.filter-select:hover {
+  border-color: #6EADD9;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #03346E;
+  box-shadow: 0 0 5px rgba(3, 52, 110, 0.3);
+}
+
+.readonly-input {
+  background-color: #f9f9f9;
+  border: 1px solid #d6bfa5;
+  border-radius: 6px;
+  color: #555;
+  cursor: not-allowed;
+  font-style: italic;
+}
+
+
+/* Botón "Ver" con borde (normal / hover) */
+.view-btn {
+  background-color: #fff !important;              /* fondo blanco */
+  color: var(--text-dark) !important;             /* texto oscuro */
+  border: 1px solid #8d8d8d !important;                         /* borde gris claro */
+  border-radius: 12px;                            /* esquinas redondeadas */
+  padding: 6px 14px;
+  font-weight: 700;
+  box-shadow: none;
+  transition: color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .05s ease;
+}
+
+.view-btn:hover {
+  background-color: #fff !important;              /* mantiene blanco */
+  color: var(--yellow-main) !important;           /* texto dorado */
+  border-color: 1px var(--yellow-main);               /* borde dorado */
+  box-shadow: 0 0 0 3px rgba(216, 156, 11, 0.18); /* halo suave dorado */
+}
+
+.view-btn:active {
+  transform: translateY(1px);                     /* leve “click” */
+}
+
+.view-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(216, 156, 11, 0.28); /* accesible con teclado */
+}
+/* ===== Ajuste de tamaño del botón "Ver" ===== */
+.appointment-table .actions .btn-primary {
+  flex: 0 0 auto;           /* no crecer */
+  min-width: 95px;
+  max-width: 110px;
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centrado vertical en las filas */
+.appointment-table td {
+  vertical-align: middle;
+}
+
+/* Versión móvil: ocupa el ancho completo si es necesario */
+@media (max-width: 640px) {
+  .appointment-table .actions .btn-primary {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ---- Input custom de hora ---- */
+.custom-time-input input {
+  width: 100%;
+  height: 40px; /* igual que los inputs normales */
+  padding: 0 12px;
+  font-size: 16px;
+  border: 1px solid #d1c9a8; /* igual que los otros campos */
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.custom-time-input input:focus {
+  outline: none;
+  border-color: #c89e3e;  /* mismo color de focus */
+  box-shadow: 0 0 4px rgba(200, 158, 62, 0.4);
+}
+

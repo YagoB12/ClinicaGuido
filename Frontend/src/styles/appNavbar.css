@@ -1,0 +1,32 @@
+/* === ENLACES DEL NAVBAR (usando NavLink) === */
+.navbar .menu-item,
+.navbar .menu-item:link,
+.navbar .menu-item:visited {
+  color: var(--cons-white) !important;
+  text-decoration: none !important;
+  font-size: .9rem;
+  opacity: .9;
+  cursor: pointer;
+  transition: .2s;
+  padding: 0;           /* igual que tus spans */
+  margin: 0;            /* igual que tus spans */
+}
+
+/* hover como tu versión original */
+.navbar .menu-item:hover {
+  color: var(--cons-yellow-light) !important;
+}
+
+/* activo (ruta actual) → que se vea igual que hover */
+.navbar .menu-item.active {
+  color: var(--cons-yellow-light) !important;
+}
+/* src/styles/appNavbar.css */
+.navbar-left {
+  cursor: pointer;      /* que se vea “clickable” */
+  user-select: none;
+}
+.navbar-left:hover .clinic-name {
+  opacity: .9;
+  text-decoration: underline; /* opcional */
+}

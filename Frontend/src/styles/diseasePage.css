@@ -1,0 +1,251 @@
+/* === CONTENEDOR PRINCIPAL === */
+.page-container {
+  background-color: #fffcf7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: #d99400;
+  color: #fff;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 600;
+}
+
+.navbar-left .clinic-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.divider {
+  margin: 0 10px;
+  border-left: 2px solid #fff;
+  height: 22px;
+}
+
+.navbar-right .menu-item {
+  margin-right: 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar-right .menu-item:hover,
+.navbar-right .menu-item.active {
+  color: #021526;
+  background-color: #e3e2b6;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+/* === CONTENIDO PRINCIPAL === */
+.content {
+  padding: 40px 60px;
+}
+
+.header-box {
+  background-color: #fff7e1;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px 30px;
+  margin-bottom: 30px;
+}
+
+.header-title {
+  color: #021526;
+  font-size: 1.6rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* === PESTAÑAS === */
+.tabs-container {
+  background-color: #fffaf0;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tabs-header {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.tab-button {
+  background-color: #f7e2a8;
+  border: none;
+  padding: 12px 25px;
+  margin-right: 15px;
+  border-radius: 8px 8px 0 0;
+  font-weight: 600;
+  color: #021526;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-button.active {
+  background-color: #d99400;
+  color: white;
+}
+
+.tab-button:hover {
+  background-color: #e3e2b6;
+}
+
+/* === FORMULARIO === */
+.disease-form {
+  background-color: #fff;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.disease-form h3 {
+  color: #021526;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #021526;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  border: 1px solid #e0cfa2;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.95rem;
+  background-color: #fffdf7;
+  color: #021526;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #d99400;
+  box-shadow: 0 0 4px rgba(217, 148, 0, 0.5);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: #d99400;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #b57b00;
+}
+
+/* === TABLA === */
+.user-list-container {
+  margin-top: 20px;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.user-table th {
+  background-color: #fff3d3;
+  color: #021526;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.user-table td {
+  padding: 12px;
+  border-top: 1px solid #f2e8c9;
+}
+
+.no-data {
+  text-align: center;
+  color: #6e6e6e;
+  padding: 20px;
+}
+
+/* === BOTONES ACCIÓN === */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-btn {
+  background-color: #ffbb00;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #e0a600;
+}
+
+.delete-btn {
+  background-color: #cc2b2b;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #a91f1f;
+}
+
+/* === BADGE CONTAGIOSA === */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.status-badge.active {
+  background-color: #48bb78; /* Verde */
+  color: white;
+}
+
+.status-badge.inactive {
+  background-color: #e53e3e; /* Rojo */
+  color: white;
+}

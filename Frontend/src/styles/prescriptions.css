@@ -1,0 +1,348 @@
+/* ===================== THEME Prescriptions (match Enfermedades) ===================== */
+.prescscope {
+  --cons-yellow-main: #d99400;      /* primary */
+  --cons-yellow-hover: #b57b00;     /* primary hover */
+  --cons-yellow-light: #fff3d3;     /* headers/strips */
+  --cons-bg-light: #fffcf7;         /* page bg */
+  --cons-white: #ffffff;
+
+  --cons-text-dark: #021526;
+  --cons-text-muted: #6e6e6e;
+
+  --cons-input-border: #e0cfa2;     /* inputs */
+  --cons-gray-border: #f2e8c9;      /* table/light borders */
+
+  --cons-soft: #fffaf0;             /* soft panels */
+  --cons-tab-inactive: #f7e2a8;     /* inactive tab */
+  --cons-tab-hover: #e3e2b6;        /* hover tab/ghost */
+
+  --cons-red-main: #cc2b2b;         /* danger */
+  --cons-red-hover: #a91f1f;
+}
+
+/* ===================== LAYOUT ===================== */
+.prescscope .page-container {
+  display: flex; flex-direction: column; min-height: 100vh;
+  background: var(--cons-bg-light);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.prescscope .content { flex: 1; padding: 40px 80px; }
+
+.prescscope .header-box{
+  background:#fff7e1; padding:20px; border-radius:12px;
+  box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+.prescscope .header-title{ color:var(--cons-yellow-main); font-size:1.8rem; font-weight:700; }
+
+/* ===================== TABS ===================== */
+.prescscope .tabs-container{
+  background:var(--cons-soft); margin-top:25px; border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+.prescscope .tabs-header{ display:flex; margin-bottom:22px; }
+.prescscope .tab-button{
+  background:var(--cons-tab-inactive); border:none; padding:12px 25px; margin-right:15px;
+  border-radius:8px 8px 0 0; font-weight:600; color:var(--cons-text-dark);
+  cursor:pointer; transition:.3s;
+}
+.prescscope .tab-button:hover{ background:var(--cons-tab-hover); }
+.prescscope .tab-button.active{ background:var(--cons-yellow-main); color:#fff; }
+.prescscope .tabs-content{ padding:30px; }
+
+/* ===================== FORM ===================== */
+.prescscope .form-grid{
+  display:grid; gap:26px; /* un toque más de separación */
+  background:#fff; padding:28px; border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,.06); max-width:1200px; margin:0 auto;
+}
+.prescscope .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+.prescscope .grid-2{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
+
+.prescscope .field{ display:flex; flex-direction:column; }
+.prescscope .field label{ color:var(--cons-text-dark); font-weight:600; margin-bottom:6px; }
+
+.prescscope .field input,
+.prescscope .field textarea,
+.prescscope .field select{
+  width:100%; padding:10px; font-size:.95rem; background:#fffdf7; color:var(--cons-text-dark);
+  border:1px solid var(--cons-input-border); border-radius:8px; transition:border-color .2s, box-shadow .2s;
+}
+.prescscope .field textarea{ min-height:72px; resize:vertical; }
+
+.prescscope .field input:focus,
+.prescscope .field textarea:focus,
+.prescscope .field select:focus{
+  outline:none; border-color:var(--cons-yellow-main);
+  box-shadow:0 0 4px rgba(217,148,0,.5);
+}
+
+.prescscope .actions-right{ display:flex; justify-content:flex-end; }
+
+/* ====== tablas/inputs de celdas reutilizables ====== */
+.prescscope .cell-input{
+  width:100%; padding:6px 8px; font-size:.9rem; background:#fff;
+  border:1px solid var(--cons-input-border); border-radius:6px;
+}
+.prescscope .cell-input:focus{
+  outline:none; border-color:var(--cons-yellow-main);
+  box-shadow:0 0 3px rgba(217,148,0,.35);
+}
+
+/* ===================== BUTTONS ===================== */
+.prescscope .btn-primary,
+.prescscope .btn-secondary,
+.prescscope .btn-danger,
+.prescscope .btn-ghost{
+  padding:10px 16px; border-radius:8px; border:none; cursor:pointer;
+  font-weight:600; transition:.25s;
+}
+.prescscope .btn-primary{ background:var(--cons-yellow-main); color:#fff; }
+.prescscope .btn-primary:hover{ background:var(--cons-yellow-hover); }
+
+.prescscope .btn-secondary{ background:#ffbb00; color:#fff; }
+.prescscope .btn-secondary:hover{ background:#e0a600; }
+
+.prescscope .btn-danger{ background:var(--cons-red-main); color:#fff; }
+.prescscope .btn-danger:hover{ background:var(--cons-red-hover); }
+
+.prescscope .btn-ghost{
+  background:transparent; color:var(--cons-text-dark);
+  border:1px solid var(--cons-input-border);
+}
+.prescscope .btn-ghost:hover{
+  background:var(--cons-tab-hover); color:var(--cons-text-dark);
+  border-color:var(--cons-tab-hover);
+}
+
+/* ===================== TABLE ===================== */
+.prescscope .table-wrap{ overflow-x:auto; }
+.prescscope .table{ width:100%; border-collapse:collapse; }
+.prescscope .table th{
+  background:var(--cons-yellow-light); color:var(--cons-text-dark);
+  padding:12px; text-align:left; border-bottom:2px solid var(--cons-gray-border);
+}
+.prescscope .table td{
+  padding:12px; color:var(--cons-text-dark);
+  border-bottom:1px solid var(--cons-gray-border);
+}
+.prescscope .table tr:hover{ background:#fffdf2; }
+.prescscope .table.table--center th, .prescscope .table.table--center td{ text-align:center; }
+.prescscope .table.table--edge-left  th:first-child,
+.prescscope .table.table--edge-left  td:first-child{ text-align:left; }
+.prescscope .table.table--edge-right th:last-child,
+.prescscope .table.table--edge-right td:last-child{ text-align:right; }
+
+.prescscope .nowrap{ white-space:nowrap; }
+.prescscope .muted{ color:var(--cons-text-muted); }
+
+/* ===================== FEEDBACK ===================== */
+.prescscope .alert-error{
+  background:#fde8e8; color:#b91c1c; border:1px solid #fecaca;
+  padding:10px 12px; border-radius:8px; font-size:.9rem;
+}
+
+/* ===================== MODAL ===================== */
+.prescscope .modal-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,.45);
+  display:flex; align-items:center; justify-content:center; z-index:999;
+}
+.prescscope .modal{
+  background:#fff; width:92%; max-width:920px; border-radius:12px; padding:26px;
+  box-shadow:0 5px 20px rgba(0,0,0,.25); animation:prescFadeIn .25s ease;
+}
+.prescscope .modal-title{
+  text-align:center; color:var(--cons-yellow-main); font-size:1.4rem; font-weight:700; margin-bottom:14px;
+}
+.prescscope .modal-form{ display:grid; gap:20px; }
+.prescscope .modal-actions{ display:flex; justify-content:flex-end; gap:10px; }
+
+@keyframes prescFadeIn { from{opacity:0; transform:scale(.98)} to{opacity:1; transform:scale(1)} }
+
+/* ===================== STEPPER / REVIEW ===================== */
+.prescscope .stepper{ display:flex; gap:12px; align-items:center; margin-bottom:8px; flex-wrap:wrap; }
+.prescscope .step-dot{
+  display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
+  border:1px solid var(--cons-gray-border); background:#fff; color:var(--cons-text-muted);
+  font-weight:700; font-size:.9rem;
+}
+.prescscope .step-dot.active{ border-color:var(--cons-yellow-main); background:var(--cons-yellow-light); color:var(--cons-yellow-hover); }
+.prescscope .step-dot.done{ border-color:var(--cons-yellow-main); background:#fffdf2; color:var(--cons-text-dark); }
+.prescscope .step-index{
+  width:22px; height:22px; display:grid; place-items:center; border-radius:999px;
+  background:var(--cons-yellow-main); color:#fff; font-size:.8rem; font-weight:800;
+}
+.prescscope .step-label{ line-height:1; }
+
+.prescscope .review-card{
+  background:#fff; border:1px solid var(--cons-gray-border);
+  border-radius:12px; padding:16px; box-shadow:0 2px 6px rgba(0,0,0,.06);
+}
+.prescscope .review-title{ color:var(--cons-yellow-main); font-weight:700; margin-bottom:10px; }
+.prescscope .review-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:8px 16px; }
+@media (max-width:640px){ .prescscope .review-grid{ grid-template-columns:1fr; } }
+
+/* ===================== CHIPS (opcional) ===================== */
+.prescscope .chip{
+  display:inline-block; padding:4px 10px; border-radius:999px;
+  font-size:12px; line-height:1; border:1px solid transparent;
+  background:#f5f5f5; color:#333; font-weight:700;
+}
+.prescscope .chip-amber{ background:#fff3cd; color:#8a6d3b; border-color:#ffe08a; }
+.prescscope .chip-blue { background:#e7f1ff; color:#0b5ed7; border-color:#b6d4fe; }
+.prescscope .chip-green{ background:#e8f5e9; color:#1e7e34; border-color:#b7e1c0; }
+.prescscope .chip-red  { background:#fdecea; color:#b02a37; border-color:#f5c2c7; }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width:1024px){ .prescscope .grid-3{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:640px){
+  .prescscope .grid-3, .prescscope .grid-2{ grid-template-columns:1fr; }
+  .prescscope .content{ padding:24px; }
+  .prescscope .tabs-content{ padding:18px; }
+}
+/* ===== Ajuste de botón "Ver" en tabla ===== */
+.prescscope .table td .btn-primary {
+  min-width: 100px;      /* ancho mínimo decente */
+  max-width: 120px;      /* evita que crezca demasiado */
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;   /* evita que se parta el texto */
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+
+/* Centra mejor el botón dentro de la celda */
+.prescscope .table td {
+  vertical-align: middle;
+}
+
+/* Si quieres todos los botones de acciones más parejos */
+.prescscope .table .actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+/* ===== Botón "Ver" en tabla (mismo tamaño que los demás) ===== */
+.prescscope .acciones-col .actions > .btn,
+.prescscope .table td .btn-primary {
+  flex: 0 0 auto;              /* no crecer */
+  min-width: 95px;
+  max-width: 110px;
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centrado vertical agradable en filas */
+.prescscope .table td { vertical-align: middle; }
+
+/* En móvil, si querés que ocupe todo el ancho de la celda */
+@media (max-width: 640px) {
+  .prescscope .acciones-col .actions > .btn,
+  .prescscope .table td .btn-primary {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+/* ===== Pastillas de ESTADO (igual look que Prioridad) ===== */
+.prescscope .status-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:75px;height:24px;padding:0 10px;border-radius:12px;
+  font-size:.8rem;font-weight:700;line-height:1;color:#fff;
+  white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.10);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.prescscope .status-badge:hover{ transform:translateY(-1px) scale(1.03); }
+
+/* Colores por estado */
+.prescscope .status--emitida   { background:#f1c40f; box-shadow:0 0 6px rgba(241,196,15,.5); }
+.prescscope .status--revisada  { background:#0b5ed7; box-shadow:0 0 6px rgba(11,94,215,.35); }
+.prescscope .status--entregada { background:#2ecc71; box-shadow:0 0 6px rgba(46,204,113,.5); }
+.prescscope .status--anulada   { background:#e74c3c; box-shadow:0 0 6px rgba(231,76,60,.5); }
+.prescscope .status--pendiente { background:#9aa0a6; box-shadow:0 0 6px rgba(154,160,166,.35); }
+
+/* Centrar la columna Estado (si querés) */
+.prescscope .table td.status-cell { text-align:center; }
+
+/* Botón "Ver" tamaño parejo */
+.prescscope .table td .btn-primary{
+  min-width:100px;max-width:120px;height:36px;
+  padding:6px 12px;font-size:.9rem;border-radius:6px;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+/* ===== Centramos el contenido de la tabla ===== */
+.prescscope .table th,
+.prescscope .table td {
+  text-align: center;          /* centra horizontalmente */
+  vertical-align: middle;      /* centra verticalmente */
+}
+
+/* Si querés mantener alineada a la izquierda solo la columna de "Paciente" */
+.prescscope .table th:nth-child(2),
+.prescscope .table td:nth-child(2) {
+  text-align: left;
+}
+/* ======== Estilo uniforme para ConsultationSelect ======== */
+.combo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.combo-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border: 1px solid #e0c97f;
+  border-radius: 6px;
+  outline: none;
+  background-color: #fffdf6;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.combo-input:focus {
+  border-color: #f1c40f;
+  box-shadow: 0 0 4px rgba(241, 196, 15, 0.5);
+}
+
+/* Lista desplegable */
+.combo-list {
+  background: #fffdf6;
+  border: 1px solid #e0c97f;
+  border-radius: 6px;
+  margin-top: 2px;
+  max-height: 210px;
+  overflow-y: auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.combo-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #222;
+  transition: background-color 0.15s ease;
+}
+.combo-item:hover {
+  background-color: #fff1be;
+}
+
+.combo-item.muted {
+  color: #888;
+  font-style: italic;
+  cursor: default;
+}
+
+/* Líneas de texto en cada item */
+.combo-item .line-strong {
+  font-weight: 600;
+}
+.combo-item .line-muted {
+  font-size: 0.85rem;
+  color: #666;
+}

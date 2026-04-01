@@ -1,0 +1,91 @@
+## === Archivos del sistema ===
+.DS_Store
+Thumbs.db
+
+## === Carpetas de compilación ===
+bin/
+obj/
+[Bb]uild/
+[Bb]uilds/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+## === Archivos de Visual Studio ===
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## === Dependencias y paquetes ===
+packages/
+*.nupkg
+*.snupkg
+*.nuspec
+project.lock.json
+project.fragment.lock.json
+
+## === Archivos de logs o temporales ===
+*.log
+*.tlog
+*.tmp
+*.bak
+*.svclog
+*.pidb
+
+## === Archivos de configuración local ===
+*.DotSettings.user
+*.orig
+*.swp
+*.env
+launchSettings.json  # solo si contiene datos locales
+*.sqlite3
+
+## === Publicaciones y backups ===
+/publish/
+/out/
+/dist/
+/debug/
+/release/
+*.publish.xml
+
+## === Archivos de test ===
+TestResult*
+*.coverage
+*.coveragexml
+*.opencover.xml
+
+## === Archivos generados por herramientas ===
+_ReSharper*/
+[Tt]est[Rr]esult*/
+[Nn]Crunch_*/
+*.ncrunchsolution
+*.ncrunchproject
+*.cachefile
+
+## === Archivos de reportes ===
+*.trx
+*.xml
+*.html
+*.json
+
+## === Archivos generados por herramientas externas ===
+*.dbmdl
+*.bak
+*.mdf
+*.ldf
+*.sql
+*.pdb
+*.dll
+*.exe
+
+## === Configuración de usuario (no subir) ===
+*.userprefs
+*.sln.iml
+.idea/
+
+## === Otros ===
+node_modules/

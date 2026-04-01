@@ -1,0 +1,641 @@
+/* ===================== COLORES BASE (Consultations) ===================== */
+.conscope {
+  --cons-yellow-main: #d89c0b;
+  --cons-yellow-hover: #b57f06;
+  --cons-yellow-light: #fff8e6;
+  --cons-red-main: #e74c3c;
+  --cons-red-hover: #c0392b;
+  --cons-gray-border: #ddd;
+  --cons-text-dark: #333;
+  --cons-text-muted: #666;
+  --cons-bg-light: #fffdf6;
+  --cons-white: #ffffff;
+}
+
+/* ===================== ESTRUCTURA PRINCIPAL ===================== */
+.conscope .page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--cons-bg-light);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* ===================== NAVBAR ===================== */
+.conscope .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--cons-yellow-main);
+  color: var(--cons-white);
+  padding: 15px 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.15);
+}
+
+.conscope .navbar-left { display: flex; align-items: center; gap: 10px; }
+.conscope .clinic-name { font-weight: 600; font-size: 1.2rem; }
+
+.conscope .divider {
+  width: 2px;
+  height: 20px;
+  background-color: var(--cons-white);
+  opacity: .6;
+}
+
+.conscope .subtitle { font-size: .9rem; opacity: .9; }
+
+.conscope .navbar-right { display: flex; align-items: center; gap: 20px; }
+
+.conscope .menu-item {
+  font-size: .9rem;
+  opacity: .9;
+  cursor: pointer;
+  transition: .2s;
+}
+.conscope .menu-item:hover { color: var(--cons-yellow-light); }
+
+.conscope .logout-btn {
+  background-color: var(--cons-white);
+  color: var(--cons-yellow-main);
+  font-weight: 600;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s;
+}
+.conscope .logout-btn:hover { background-color: var(--cons-yellow-light); }
+
+/* ===================== CONTENIDO PRINCIPAL ===================== */
+.conscope .content { flex: 1; padding: 40px 80px; }
+
+.conscope .header-box {
+  background: var(--cons-white);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+}
+.conscope .header-title {
+  color: var(--cons-yellow-main);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* ===================== TABS ===================== */
+.conscope .tabs-container {
+  background: var(--cons-white);
+  margin-top: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+}
+.conscope .tabs-header { display: flex; border-bottom: 1px solid var(--cons-gray-border); }
+
+.conscope .tab-button {
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--cons-text-muted);
+  border-bottom: 3px solid transparent;
+  transition: .3s;
+}
+.conscope .tab-button:hover { color: var(--cons-yellow-main); }
+.conscope .tab-button.active {
+  color: var(--cons-yellow-main);
+  border-bottom-color: var(--cons-yellow-main);
+  background-color: var(--cons-yellow-light);
+}
+
+.conscope .tabs-content { padding: 30px; }
+
+/* ===================== FORMULARIO (ConsultationForm) ===================== */
+.conscope .form-grid {
+  display: grid;
+  gap: 24px;
+  background-color: var(--cons-white);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.conscope .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.conscope .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+.conscope .field { display: flex; flex-direction: column; }
+.conscope .field label { color: var(--cons-text-dark); font-weight: 500; margin-bottom: 6px; }
+
+.conscope .field input,
+.conscope .field textarea,
+.conscope .field select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--cons-gray-border);
+  border-radius: 8px;
+  font-size: .95rem;
+  background: var(--cons-white);
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.conscope .field textarea { min-height: 72px; resize: vertical; }
+
+.conscope .field input:focus,
+.conscope .field textarea:focus,
+.conscope .field select:focus {
+  border-color: var(--cons-yellow-main);
+  outline: none;
+  box-shadow: 0 0 5px rgba(216,156,11,.3);
+}
+
+.conscope .actions-right { display: flex; justify-content: flex-end; }
+
+/* ===================== BOTONES ===================== */
+.conscope .btn-primary,
+.conscope .btn-secondary,
+.conscope .btn-danger,
+.conscope .btn-ghost {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: .25s;
+}
+
+.conscope .btn-primary { background: var(--cons-yellow-main); color: var(--cons-white); }
+.conscope .btn-primary:hover { background: var(--cons-yellow-hover); }
+
+.conscope .btn-secondary { background: #f6c744; color: #fff; }
+.conscope .btn-secondary:hover { background: #dba600; }
+
+.conscope .btn-danger { background: var(--cons-red-main); color: #fff; }
+.conscope .btn-danger:hover { background: var(--cons-red-hover); }
+
+.conscope .btn-ghost {
+  background: transparent;
+  color: var(--cons-text-dark);
+  border: 1px solid var(--cons-gray-border);
+}
+.conscope .btn-ghost:hover { border-color: var(--cons-yellow-main); color: var(--cons-yellow-main); }
+
+/* ===================== TABLA (ConsultationList) ===================== */
+.conscope .table-wrap { overflow-x: auto; }
+
+.conscope .table { width: 100%; border-collapse: collapse; }
+.conscope .table th {
+  background-color: var(--cons-yellow-light);
+  color: var(--cons-text-dark);
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--cons-gray-border);
+}
+.conscope .table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--cons-gray-border);
+  color: var(--cons-text-dark);
+}
+.conscope .table tr:hover { background-color: #fffdf2; }
+
+/* 👉 Centrado simple: añade 'table--center' a tu <table> para centrar todo */
+.conscope .table.table--center th,
+.conscope .table.table--center td {
+  text-align: center;
+}
+
+/* (Opcional) Si quieres primera/última columna alineadas distinto: */
+.conscope .table.table--center.table--edge-left th:first-child,
+.conscope .table.table--center.table--edge-left td:first-child { text-align: left; }
+.conscope .table.table--center.table--edge-right th:last-child,
+.conscope .table.table--center.table--edge-right td:last-child { text-align: right; }
+
+.conscope .nowrap { white-space: nowrap; }
+.conscope .muted { color: var(--cons-text-muted); }
+
+/* ===================== FEEDBACK ===================== */
+.conscope .loading { color: var(--cons-text-muted); font-size: .95rem; }
+.conscope .alert-error {
+  background: #fde8e8;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: .9rem;
+}
+
+/* ===================== MODAL (ConsultationEditModal) ===================== */
+.conscope .modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.conscope .modal {
+  background: var(--cons-white);
+  width: 92%;
+  max-width: 920px;
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.25);
+  animation: consFadeIn .25s ease;
+}
+
+.conscope .modal-title {
+  text-align: center;
+  color: var(--cons-yellow-main);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.conscope .modal-form { display: grid; gap: 18px; }
+.conscope .modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
+
+@keyframes consFadeIn {
+  from { opacity: 0; transform: scale(.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .conscope .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .conscope .grid-3, .conscope .grid-2 { grid-template-columns: 1fr; }
+  .conscope .content { padding: 24px; }
+  .conscope .tabs-content { padding: 18px; }
+}
+
+/* Botón suave (azul claro) para acciones de lectura */
+.conscope .btn-soft {
+  background: #eef6ff;
+  color: #0b4acb;
+  border: 1px solid #cfe2ff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.conscope .btn-soft:hover {
+  background: #e1f0ff;
+  border-color: #b6d4fe;
+}
+.conscope .btn-soft:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* ====== VIEW MODAL: “Consulta” (solo lectura) ====== */
+.conscope .modal .field > label {
+  font-weight: 700;
+  color: var(--cons-text-dark);
+  margin-bottom: 6px;
+}
+
+/* Cajas de lectura bonitas para textarea/input readonly */
+.conscope .modal textarea[readonly],
+.conscope .modal input[readonly] {
+  background: #fafafa;
+  border: 1px solid var(--cons-gray-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--cons-text-dark);
+  width: 100%;
+  resize: none;
+  min-height: 86px;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,.02);
+}
+
+/* Tarjetitas y grids reutilizables */
+.conscope .review-card {
+  background: var(--cons-white);
+  border: 1px solid var(--cons-gray-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+
+.conscope .review-title {
+  color: var(--cons-yellow-main);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.conscope .review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 16px;
+}
+
+/* Bloques tipo “pill” para los signos vitales */
+.conscope .vital-pill {
+  border: 1px solid #eee;
+  background: #fffdf2;
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.conscope .vital-pill .lbl {
+  font-weight: 700;
+  color: var(--cons-text-dark);
+}
+
+.conscope .vital-pill .val {
+  font-weight: 800;
+  color: var(--cons-yellow-hover);
+  white-space: nowrap;
+}
+
+/* Ajustes del modal para lectura */
+.conscope .modal .modal-title {
+  margin-bottom: 8px;
+}
+
+.conscope .modal .grid-2 {
+  gap: 18px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .conscope .review-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .conscope .modal { width: 96%; padding: 20px; }
+  .conscope .modal textarea[readonly] { min-height: 72px; }
+}
+/* ===== Ajustes específicos del modal de vista ===== */
+.conscope .section-gap { margin-top: 12px; margin-bottom: 12px; }
+
+.conscope .modal textarea[readonly] {
+  min-height: 110px;             /* más respiración */
+  line-height: 1.45;
+}
+
+.conscope .vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .conscope .vitals-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .conscope .vitals-grid { grid-template-columns: 1fr; }
+}
+/* Evita que los campos empujen las columnas en grid */
+.conscope .modal .field { 
+  min-width: 0;              /* clave en CSS Grid */
+}
+
+/* Asegura separación visible entre columnas dentro de las tarjetitas */
+.conscope .review-card .grid-2 {
+  column-gap: 16px;
+  row-gap: 12px;
+  align-items: start;
+}
+
+/* Textareas de solo lectura bien contenidos */
+.conscope .modal textarea[readonly],
+.conscope .modal input[readonly] {
+  box-sizing: border-box;
+  min-height: 110px;
+}
+/* ================== THEME "Guido Golden" (match Enfermedades) ================== */
+.conscope {
+  /* Paleta y básicos */
+  --cons-yellow-main: #d99400;   /* primary */
+  --cons-yellow-hover: #b57b00;  /* primary hover */
+  --cons-yellow-light: #fff3d3;  /* cabeceras/strips tabla */
+  --cons-bg-light: #fffcf7;      /* fondo página */
+  --cons-white: #ffffff;
+
+  --cons-text-dark: #021526;     /* texto principal como en Enfermedades */
+  --cons-text-muted: #6e6e6e;
+
+  --cons-gray-border: #f2e8c9;   /* bordes suaves */
+  --cons-input-border: #e0cfa2;
+
+  --cons-red-main: #cc2b2b;      /* danger */
+  --cons-red-hover: #a91f1f;
+
+  --cons-soft: #fffaf0;          /* cajas suaves */
+  --cons-tab-inactive: #f7e2a8;  /* pestaña inactiva */
+  --cons-tab-hover: #e3e2b6;     /* hover pestaña/ghost */
+}
+
+/* Fondo de página y contenedores principales */
+.conscope .page-container { background-color: var(--cons-bg-light); }
+.conscope .header-box { background-color: #fff7e1; }
+.conscope .tabs-container { background-color: var(--cons-soft); }
+
+/* ---------------- Botones (alineados con Enfermedades) ---------------- */
+.conscope .btn-primary {
+  background: var(--cons-yellow-main);
+  color: #fff;
+}
+.conscope .btn-primary:hover { background: var(--cons-yellow-hover); }
+
+.conscope .btn-secondary {
+  background: #ffbb00; /* como .edit-btn */
+  color: #fff;
+}
+.conscope .btn-secondary:hover { background: #e0a600; }
+
+.conscope .btn-danger {
+  background: var(--cons-red-main);
+  color: #fff;
+}
+.conscope .btn-danger:hover { background: var(--cons-red-hover); }
+
+/* Ghost con mismo “tono crema” del sitio de Enfermedades */
+.conscope .btn-ghost {
+  background: transparent;
+  color: var(--cons-text-dark);
+  border: 1px solid var(--cons-input-border);
+}
+.conscope .btn-ghost:hover {
+  background: var(--cons-tab-hover);
+  color: var(--cons-text-dark);
+  border-color: var(--cons-tab-hover);
+}
+
+/* ---------------- Tabs (igual estilo) ---------------- */
+.conscope .tabs-header { margin-bottom: 22px; }
+.conscope .tab-button {
+  background-color: var(--cons-tab-inactive);
+  color: var(--cons-text-dark);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px 8px 0 0;
+  font-weight: 600;
+  transition: .3s;
+}
+.conscope .tab-button:hover { background-color: var(--cons-tab-hover); }
+.conscope .tab-button.active {
+  background-color: var(--cons-yellow-main);
+  color: #fff;
+}
+
+/* ---------------- Inputs / Textareas ---------------- */
+.conscope .field input,
+.conscope .field textarea,
+.conscope .field select,
+.conscope .modal input,
+.conscope .modal textarea,
+.conscope .modal select {
+  border: 1px solid var(--cons-input-border);
+  background-color: #fffdf7;
+  color: var(--cons-text-dark);
+}
+.conscope .field input:focus,
+.conscope .field textarea:focus,
+.conscope .field select:focus,
+.conscope .modal input:focus,
+.conscope .modal textarea:focus,
+.conscope .modal select:focus {
+  outline: none;
+  border-color: var(--cons-yellow-main);
+  box-shadow: 0 0 4px rgba(217,148,0,.5);
+}
+
+/* ---------------- Tablas ---------------- */
+.conscope .table th {
+  background-color: var(--cons-yellow-light);
+  color: var(--cons-text-dark);
+  border-bottom: 2px solid var(--cons-gray-border);
+}
+.conscope .table td {
+  border-bottom: 1px solid var(--cons-gray-border);
+}
+.conscope .table tr:hover { background-color: #fffdf2; }
+
+/* ---------------- Badges (si usás estados) ---------------- */
+.conscope .status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: .8rem;
+}
+.conscope .status-badge.active  { background: #48bb78; color: #fff; } /* verde */
+.conscope .status-badge.inactive{ background: #e53e3e; color: #fff; } /* rojo */
+
+/* ---------------- Modal (títulos y acciones coherentes) ---------------- */
+.conscope .modal-title {
+  color: var(--cons-yellow-main);
+}
+.conscope .modal { background: #fff; }
+
+/* (opcional) resaltar sección superior del modal con “tarjeta suave” */
+.conscope .review-card {
+  background: #fff;
+  border: 1px solid var(--cons-gray-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+.conscope .review-title {
+  color: var(--cons-yellow-main);
+  font-weight: 700;
+}
+
+/* ---------------- Navbar (si lo usas dentro de .conscope) ---------------- */
+.conscope .navbar {
+  background-color: var(--cons-yellow-main);
+  color: #fff;
+}
+.conscope .navbar-right .menu-item:hover,
+.conscope .navbar-right .menu-item.active {
+  color: #021526;
+  background-color: #e3e2b6;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+/* ===================== THEME "Guido Golden" – SOLO VARIABLES ===================== */
+.conscope {
+  --cons-yellow-main: #d99400;
+  --cons-yellow-hover: #b57b00;
+  --cons-yellow-light: #fff3d3;
+  --cons-bg-light: #fffcf7;
+  --cons-white: #ffffff;
+
+  --cons-text-dark: #021526;
+  --cons-text-muted: #6e6e6e;
+
+  --cons-gray-border: #f2e8c9;
+  --cons-input-border: #e0cfa2;
+
+  --cons-red-main: #cc2b2b;
+  --cons-red-hover: #a91f1f;
+
+  --cons-soft: #fffaf0;
+  --cons-tab-inactive: #f7e2a8;
+  --cons-tab-hover: #e3e2b6;
+}
+
+/* ===================== BOTONES – SOLO ESTOS ===================== */
+.conscope .btn-primary,
+.conscope .btn-secondary,
+.conscope .btn-danger,
+.conscope .btn-ghost {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: .25s;
+}
+
+.conscope .btn-primary {
+  background: var(--cons-yellow-main);
+  color: #fff;
+}
+.conscope .btn-primary:hover { background: var(--cons-yellow-hover); }
+
+.conscope .btn-secondary {
+  background: #ffbb00;
+  color: #fff;
+}
+.conscope .btn-secondary:hover { background: #e0a600; }
+
+.conscope .btn-danger {
+  background: var(--cons-red-main);
+  color: #fff;
+}
+.conscope .btn-danger:hover { background: var(--cons-red-hover); }
+
+.conscope .btn-ghost {
+  background: transparent;
+  color: var(--cons-text-dark);
+  border: 1px solid var(--cons-input-border);
+}
+.conscope .btn-ghost:hover {
+  background: var(--cons-tab-hover);
+  color: var(--cons-text-dark);
+  border-color: var(--cons-tab-hover);
+}
+
+/* ===== Botón “Ver” DENTRO de tablas – más pequeño ===== */
+.conscope .table td .btn-primary {
+  min-width: 95px;
+  max-width: 110px;
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+}
+.conscope .table td { vertical-align: middle; }
+
+/* ===== Responsive: en móvil ocupa ancho completo de la celda ===== */
+@media (max-width: 640px) {
+  .conscope .table td .btn-primary { min-width: 100%; }
+}

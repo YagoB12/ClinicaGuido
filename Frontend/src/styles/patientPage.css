@@ -1,0 +1,433 @@
+/* ===================== COLORES BASE ===================== */
+:root {
+  --yellow-main: #d89c0b;
+  --yellow-hover: #b57f06;
+  --yellow-light: #fff8e6;
+  --red-main: #e74c3c;
+  --red-hover: #c0392b;
+  --gray-border: #ddd;
+  --text-dark: #333;
+  --text-muted: #666;
+  --bg-light: #fffdf6;
+  --white: #ffffff;
+}
+
+/* ===================== ESTRUCTURA PRINCIPAL ===================== */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-light);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--yellow-main);
+  color: var(--white);
+  padding: 15px 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.clinic-name {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.divider {
+  width: 2px;
+  height: 20px;
+  background-color: var(--white);
+  opacity: 0.6;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-item {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: 0.2s;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  color: var(--yellow-light);
+}
+
+.logout-btn {
+  background-color: var(--white);
+  color: var(--yellow-main);
+  font-weight: 600;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: var(--yellow-light);
+}
+
+/* ===================== CONTENIDO PRINCIPAL ===================== */
+.content {
+  flex: 1;
+  padding: 40px 80px;
+}
+
+.header-box {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+  color: var(--yellow-main);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* ===================== TABS ===================== */
+.tabs-container {
+  background: var(--white);
+  margin-top: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.tabs-header {
+  display: flex;
+  border-bottom: 1px solid var(--gray-border);
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 3px solid transparent;
+  transition: 0.3s;
+}
+
+.tab-button:hover {
+  color: var(--yellow-main);
+}
+
+.tab-button.active {
+  color: var(--yellow-main);
+  border-bottom: 3px solid var(--yellow-main);
+  background-color: var(--yellow-light);
+}
+
+.tabs-content {
+  padding: 30px;
+}
+
+/* ===================== FORMULARIO DE PACIENTES ===================== */
+.patient-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  background-color: var(--white);
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.patient-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.patient-form .form-group.full-width {
+  grid-column: span 3;
+}
+
+.patient-form label {
+  color: var(--text-dark);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.patient-form input,
+.patient-form select,
+.patient-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--gray-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: 0.2s;
+  background-color: #fff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.patient-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.patient-form input:focus,
+.patient-form select:focus,
+.patient-form textarea:focus {
+  border-color: var(--yellow-main);
+  box-shadow: 0 0 5px rgba(216, 156, 11, 0.3);
+  outline: none;
+}
+
+.patient-form input[type="file"] {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.patient-form .form-button {
+  grid-column: span 3;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.patient-form button[type="submit"] {
+  background-color: var(--yellow-main);
+  color: var(--white);
+  border: none;
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.patient-form button[type="submit"]:hover {
+  background-color: var(--yellow-hover);
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .patient-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .patient-form .form-group.full-width {
+    grid-column: span 2;
+  }
+  
+  .patient-form .form-button {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .patient-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .patient-form .form-group.full-width {
+    grid-column: span 1;
+  }
+  
+  .patient-form .form-button {
+    grid-column: span 1;
+  }
+}
+
+/* ========== MODAL DE EDICIÓN DE PACIENTES ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background-color: var(--white);
+  width: 90%;
+  max-width: 900px;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-title {
+  text-align: center;
+  color: var(--yellow-main);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-close:hover {
+  color: var(--red-main);
+}
+
+.readonly {
+  background-color: #f7f7f7;
+  color: #666;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===================== TABLA ===================== */
+.patient-list-container {
+  overflow-x: auto;
+}
+
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--white);
+}
+
+.patient-table th {
+  background-color: var(--yellow-light);
+  color: var(--text-dark);
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--gray-border);
+  font-weight: 600;
+}
+
+.patient-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--gray-border);
+  color: var(--text-dark);
+}
+
+.patient-table tr:hover {
+  background-color: #fffdf2;
+}
+
+.patient-table .no-data {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 30px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* === BOTONES DE ACCIÓN === */
+.action-btn {
+  padding: 6px 10px;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background-color: #f6c744;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #dba600;
+}
+
+.delete-btn {
+  background-color: var(--red-main);
+}
+
+.delete-btn:hover {
+  background-color: var(--red-hover);
+}
+
+.status-cell {
+  text-align: center;
+  vertical-align: middle !important;
+  padding: 4px 0 !important;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 75px;
+  height: 24px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  padding: 0 10px;
+  line-height: 1;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  transform: translateY(-1px);
+  transition: all 0.25s ease;
+}
+
+.status-badge.active {
+  background-color: #2ecc71;
+  box-shadow: 0 0 6px rgba(46, 204, 113, 0.5);
+}
+
+.status-badge.inactive {
+  background-color: #e74c3c;
+  box-shadow: 0 0 6px rgba(231, 76, 60, 0.5);
+}
+
+.status-badge:hover {
+  transform: translateY(-1px) scale(1.05);
+}
