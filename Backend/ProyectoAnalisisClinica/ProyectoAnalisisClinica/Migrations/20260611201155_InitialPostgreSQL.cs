@@ -1,12 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace ProyectoAnalisisClinica.Migrations
 {
     /// <inheritdoc />
-    public partial class sincronizar_cambios_dev : Migration
+    public partial class InitialPostgreSQL : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,15 +16,15 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "Disease",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    TypeDisease = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    LevelSeverity = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
-                    Symptoms = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: true),
-                    Causes = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: true),
-                    IsContagious = table.Column<bool>(type: "bit", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    TypeDisease = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
+                    LevelSeverity = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: true),
+                    Symptoms = table.Column<string>(type: "character varying(400)", maxLength: 400, nullable: true),
+                    Causes = table.Column<string>(type: "character varying(400)", maxLength: 400, nullable: true),
+                    IsContagious = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,15 +35,15 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "MedicineInventory",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NameMedicine = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    TypePresentation = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AvailableQuantity = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    NameMedicine = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
+                    TypePresentation = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    AvailableQuantity = table.Column<int>(type: "integer", nullable: false),
                     PreparationDate = table.Column<DateOnly>(type: "date", nullable: true),
                     ExpirationDate = table.Column<DateOnly>(type: "date", nullable: true),
-                    Concentration = table.Column<double>(type: "float", nullable: true)
+                    Concentration = table.Column<double>(type: "double precision", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -53,14 +54,14 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "Person",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Identification = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Phone = table.Column<int>(type: "int", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Identification = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Phone = table.Column<int>(type: "integer", nullable: false),
+                    Gender = table.Column<string>(type: "text", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,9 +72,9 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "Rol",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Nombre = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -84,15 +85,15 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "MedicalPatient",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false),
                     BirthDate = table.Column<DateOnly>(type: "date", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MaritalStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Disability = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Photo = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    EmergencyContactName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmergencyContactNumber = table.Column<int>(type: "int", nullable: false),
-                    EmergencyContactRelationship = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Address = table.Column<string>(type: "text", nullable: true),
+                    MaritalStatus = table.Column<string>(type: "text", nullable: true),
+                    Disability = table.Column<string>(type: "text", nullable: true),
+                    Photo = table.Column<byte[]>(type: "bytea", nullable: true),
+                    EmergencyContactName = table.Column<string>(type: "text", nullable: true),
+                    EmergencyContactNumber = table.Column<int>(type: "integer", nullable: false),
+                    EmergencyContactRelationship = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -109,9 +110,9 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "User",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    RolId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false),
+                    Password = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    RolId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -134,15 +135,15 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "Appointment",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     DateAppointment = table.Column<DateOnly>(type: "date", nullable: false),
                     HourAppointment = table.Column<TimeOnly>(type: "time", nullable: false),
-                    ReasonAppointment = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
-                    Priority = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    OfficeNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    MedicalPatientId = table.Column<int>(type: "int", nullable: false)
+                    ReasonAppointment = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
+                    Priority = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
+                    OfficeNumber = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
+                    Status = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
+                    MedicalPatientId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -159,8 +160,8 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "MedicalPatientDisease",
                 columns: table => new
                 {
-                    MedicalPatientId = table.Column<int>(type: "int", nullable: false),
-                    DiseaseId = table.Column<int>(type: "int", nullable: false)
+                    MedicalPatientId = table.Column<int>(type: "integer", nullable: false),
+                    DiseaseId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -183,18 +184,18 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "Consultation",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ReasonConsultation = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Diagnostic = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
-                    Notes = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
-                    TreatmentPlan = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    Temperature = table.Column<int>(type: "int", nullable: true),
-                    BloodPressure = table.Column<double>(type: "float", nullable: true),
-                    HeartRate = table.Column<double>(type: "float", nullable: true),
-                    Weight = table.Column<double>(type: "float", nullable: true),
-                    Height = table.Column<double>(type: "float", nullable: true),
-                    AppointmentId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ReasonConsultation = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    Diagnostic = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
+                    Notes = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: true),
+                    TreatmentPlan = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
+                    Temperature = table.Column<int>(type: "integer", nullable: true),
+                    BloodPressure = table.Column<double>(type: "double precision", nullable: true),
+                    HeartRate = table.Column<double>(type: "double precision", nullable: true),
+                    Weight = table.Column<double>(type: "double precision", nullable: true),
+                    Height = table.Column<double>(type: "double precision", nullable: true),
+                    AppointmentId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -211,13 +212,13 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "MedicalPrescription",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ConsultationId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ConsultationId = table.Column<int>(type: "integer", nullable: false),
                     IssueDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    Observation = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    AdditionalInstructions = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, defaultValue: "Emitida")
+                    Observation = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
+                    AdditionalInstructions = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: true),
+                    Status = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false, defaultValue: "Emitida")
                 },
                 constraints: table =>
                 {
@@ -234,21 +235,21 @@ namespace ProyectoAnalisisClinica.Migrations
                 name: "PrescriptionMedicine",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MedicalPrescriptionId = table.Column<int>(type: "int", nullable: false),
-                    MedicineInventoryId = table.Column<int>(type: "int", nullable: false),
-                    DailyDose = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    Frequency = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    TreatmentDurationDays = table.Column<int>(type: "int", nullable: false),
-                    ItemObservation = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    QuantityTotal = table.Column<int>(type: "int", nullable: true)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    MedicalPrescriptionId = table.Column<int>(type: "integer", nullable: false),
+                    MedicineInventoryId = table.Column<int>(type: "integer", nullable: false),
+                    DailyDose = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
+                    Frequency = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
+                    TreatmentDurationDays = table.Column<int>(type: "integer", nullable: false),
+                    ItemObservation = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
+                    QuantityTotal = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PrescriptionMedicine", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PrescriptionMedicine_MedicalPrescription_MedicalPrescriptionId",
+                        name: "FK_PrescriptionMedicine_MedicalPrescription_MedicalPrescriptio~",
                         column: x => x.MedicalPrescriptionId,
                         principalTable: "MedicalPrescription",
                         principalColumn: "Id",
@@ -284,7 +285,7 @@ namespace ProyectoAnalisisClinica.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_PrescriptionMedicine_MedicalPrescriptionId_MedicineInventoryId",
+                name: "IX_PrescriptionMedicine_MedicalPrescriptionId_MedicineInventor~",
                 table: "PrescriptionMedicine",
                 columns: new[] { "MedicalPrescriptionId", "MedicineInventoryId" });
 
