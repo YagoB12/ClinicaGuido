@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { getMedicines, type MedicineBrief } from "../../services/medicineService";
+import { getMedicines } from "../../services/medicineService";
+import type { MedicineBrief } from "../../types/medicine";
 
 interface MedicineSelectProps {
   onSelect: (m: MedicineBrief | null) => void;
