@@ -3,7 +3,10 @@ import axios from "axios";
 import { logoutUser } from "./authService";
 
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: import.meta.env.VITE_API_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 // ---- REQUEST: adjuntar token si existe ----
