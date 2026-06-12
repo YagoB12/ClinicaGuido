@@ -20,6 +20,15 @@ namespace ProyectoAnalisisClinica.Controllers
             _jwtUtil = jwtUtil;
         }
 
+        [HttpGet("hash")]
+        [AllowAnonymous]
+        public IActionResult GetHash()
+        {
+            return Ok(
+                PasswordHasher.HashPassword("Admin12345")
+            );
+        }
+
         [HttpPost("login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginRequest model, CancellationToken ct)
