@@ -119,6 +119,19 @@ builder.Services.AddAuthorization(options =>
         options.AddPolicy(p, policy => policy.RequireClaim("perm", p));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("FrontendPolicy", policy =>
+    {
+        policy
+            .SetIsOriginAllowed(origin =>
+                new Uri(origin).Host.EndsWith(".vercel.app"))
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
+
 // =================== 🔹 CONSTRUCCIÓN APP ===================
 var app = builder.Build();
 
@@ -157,7 +170,7 @@ app.UseSwaggerUI(c =>
 });
 
 //app.UseHttpsRedirection();
-
+app.UseCors("FrontendPolicy");
 app.UseAuthentication();
 app.UseAuthorization();
 
